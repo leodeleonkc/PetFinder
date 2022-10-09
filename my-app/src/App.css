@@ -1,0 +1,16 @@
+.App {
+  border: 2px solid black;
+  max-width: 1260px;
+  width: 90%;
+  margin: 5% auto;
+  letter-spacing: 1.15px;
+}
+
+p {
+  color: #606060;
+  font-size: 1.25rem;
+}
+
+button {
+  letter-spacing: 1.15px;
+}
