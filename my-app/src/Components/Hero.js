@@ -1,5 +1,5 @@
 import "../hero.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import figaro from "../images/figaro.png";
 import star1 from "../images/stars/star1.svg";
 import star2 from "../images/stars/star2.svg";
@@ -7,8 +7,22 @@ import star3 from "../images/stars/star3.svg";
 import star4 from "../images/stars/star4.svg";
 
 export default function Hero() {
+  const [scrollPosition, setScrollPosition] = useState(0);
   const [location, setLocation] = useState("");
   const [category, setCategory] = useState("cat");
+
+  const handleScroll = () => {
+    const position = window.pageYOffset / 7;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   function handleLocationChange(e) {
     setLocation(() => e.target.value);
@@ -69,7 +83,7 @@ export default function Hero() {
             className={`hero--btn ${category === "all" ? "selected" : ""}`}
             onClick={() => handleCategory("all")}
           >
-            All
+            Small & Furry
           </button>
         </div>
         <div className="hero--the-search">
@@ -85,10 +99,12 @@ export default function Hero() {
       </div>
       <div className="hero--mugshot">
         <img
+          style={{ transform: `rotate(${scrollPosition}deg)` }}
           src={star1}
           alt="Pointy star ornament"
           className="hero--star1 star"
         />
+
         <img
           src={figaro}
           alt="American long-hair grey cat sitting there being cute."

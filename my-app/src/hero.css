@@ -96,12 +96,29 @@
 
 .hero--mugshot {
   margin: auto;
+  position: relative;
 }
 .hero--figaro {
   max-width: 342px;
+  transition-duration: 200ms;
 }
 
 .star {
+  position: absolute;
+}
+
+.hero--star1 {
+  top: 0;
+}
+
+.hero--star2 {
+  display: none;
+  top: 50%;
+  left: 80%;
+}
+
+.hero--star3,
+.hero--star4 {
   display: none;
 }
 
@@ -115,6 +132,10 @@
 
   .hero--buttons {
     justify-content: space-between;
+  }
+
+  .hero--btn {
+    margin: 0.5em 0;
   }
 }
 
@@ -142,13 +163,13 @@
   }
 
   .hero--figaro {
-    max-width: 200px;
+    max-width: 290px;
   }
 }
 
 @media screen and (min-width: 1000px) {
   .hero--figaro {
-    max-width: 250px;
+    max-width: 310px;
   }
 }
 
@@ -164,26 +185,5 @@
 @media screen and (min-width: 1240px) {
   .hero--container {
     gap: 10em;
-  }
-  .star {
-    display: grid;
-    position: absolute;
-  }
-
-  .hero--star1 {
-    top: 11%;
-    left: 65%;
-    z-index: 10;
-  }
-
-  .hero--star2 {
-    top: 23%;
-    left: 50%;
-    z-index: 10;
-  }
-
-  .hero--star3,
-  .hero--star4 {
-    display: none;
   }
 }
