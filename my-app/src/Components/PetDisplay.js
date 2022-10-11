@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Context } from "../Fetch";
+import { Context } from "../Fetch.js";
 import Pet from "./Pet";
 import "../petDisplay.css";
 

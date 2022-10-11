@@ -1,5 +1,6 @@
 import "../hero.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Context } from "../Fetch";
 import figaro from "../images/figaro.png";
 import star1 from "../images/stars/star1.svg";
 import star2 from "../images/stars/star2.svg";
@@ -7,6 +8,7 @@ import star3 from "../images/stars/star3.svg";
 import star4 from "../images/stars/star4.svg";
 
 export default function Hero() {
+  const fetch = useContext(Context);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [location, setLocation] = useState("");
   const [category, setCategory] = useState("cat");
@@ -31,6 +33,7 @@ export default function Hero() {
 
   function handleCategory(category) {
     setCategory(() => category);
+    fetch.searchPets(category, location);
     console.log(category);
   }
 
@@ -80,10 +83,10 @@ export default function Hero() {
             Rabbit
           </button>
           <button
-            className={`hero--btn ${category === "all" ? "selected" : ""}`}
-            onClick={() => handleCategory("all")}
+            className={`hero--btn ${category === "bird" ? "selected" : ""}`}
+            onClick={() => handleCategory("bird")}
           >
-            Small & Furry
+            Bird
           </button>
         </div>
         <div className="hero--the-search">
@@ -94,7 +97,12 @@ export default function Hero() {
             value={location}
             onChange={handleLocationChange}
           ></input>
-          <button className="hero--search-btn">Search Pets</button>
+          <button
+            onClick={() => fetch.searchPets(category, location)}
+            className="hero--search-btn"
+          >
+            Search Pets
+          </button>
         </div>
       </div>
       <div className="hero--mugshot">
