@@ -58,11 +58,7 @@ export default function Hero() {
           alt="Pointy star ornament"
           className="hero--star3 star"
         />
-        <img
-          src={star4}
-          alt="Pointy star ornament"
-          className="hero--star4 star"
-        />
+
         <div className="hero--buttons">
           <button
             className={`hero--btn ${category === "cat" ? "selected" : ""}`}
@@ -90,6 +86,11 @@ export default function Hero() {
           </button>
         </div>
         <div className="hero--the-search">
+          <img
+            src={star4}
+            alt="Pointy star ornament"
+            className="hero--star4 star"
+          />
           <input
             type="text"
             className="hero--input"

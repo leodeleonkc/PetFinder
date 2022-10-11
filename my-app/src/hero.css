@@ -31,7 +31,7 @@
   border: 1px solid black;
   border-radius: 4px;
   margin: 0.5em;
-  font-size: 1.125rem;
+  font-size: 1.2rem;
   transition-duration: 300ms;
   height: 51px;
   padding: 0 3em;
@@ -114,11 +114,13 @@
 
 .hero--star2 {
   display: none;
-  top: 50%;
+  top: 52%;
   left: 80%;
 }
 
-.hero--star3,
+.hero--star3 {
+  display: none;
+}
 .hero--star4 {
   display: none;
 }

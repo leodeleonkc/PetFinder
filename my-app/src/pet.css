@@ -21,6 +21,14 @@
   width: 310px;
   height: 292px;
   margin-bottom: none;
+  background: #97e7ff;
+}
+
+.pet-container-top::after {
+  content: "";
+  mix-blend-mode: lighten;
+  background: #b1f6fc;
+  opacity: 1;
 }
 
 .pet-container-bottom {
@@ -63,4 +71,13 @@
   object-fit: cover;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  transition-duration: 200ms;
+}
+
+.pet-image:hover {
+  -webkit-filter: brightness(120%) contrast(120%) grayscale(100%)
+    hue-rotate(0deg) invert(0%) opacity(100%) saturate(100%) sepia(0%);
+  filter: brightness(120%) contrast(120%) grayscale(100%) hue-rotate(0deg)
+    invert(0%) opacity(100%) saturate(100%) sepia(0%);
+  mix-blend-mode: multiply;
 }
