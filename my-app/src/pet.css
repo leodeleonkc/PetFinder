@@ -1,0 +1,66 @@
+.pet-data {
+  transition-duration: 200ms;
+}
+
+.pet-data:hover {
+  box-shadow: 16px 16px #f86250, 16px 16px 0 2px black;
+  border-radius: 8px;
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.pet-data:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.pet-container-top {
+  border: 2px solid black;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 310px;
+  height: 292px;
+  margin-bottom: none;
+}
+
+.pet-container-bottom {
+  margin-top: none;
+  border-top: none;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  width: 310px;
+  height: 79px;
+}
+
+.pet-name,
+.pet-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pet-name {
+  margin: 0 auto;
+  padding: 0.5rem 0 0 0.5em;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: black;
+  text-transform: capitalize;
+}
+
+.pet-description {
+  font-size: 1rem;
+  margin-top: 0;
+  padding-left: 0.8rem;
+}
+
+.pet-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}

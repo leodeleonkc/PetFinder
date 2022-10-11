@@ -3,7 +3,7 @@
   max-width: 1260px;
   width: 90%;
   margin: 5% auto;
-  letter-spacing: 1.15px;
+  letter-spacing: 1.1px;
 }
 
 p {
@@ -13,4 +13,9 @@ p {
 
 button {
   letter-spacing: 1.15px;
+}
+
+.component-container {
+  margin: 2em;
+  line-height: 1.5;
 }
