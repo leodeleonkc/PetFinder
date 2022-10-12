@@ -9,7 +9,7 @@ export default function Pet({ img }) {
   let breed = img?.breeds?.primary ? img.breeds.primary : "null";
 
   return (
-    <div className="pet-data">
+    <div className="pet-data pop">
       <div className="pet-container-top">
         <img alt="Pet" src={imgSrc} className="pet-image" />
       </div>
