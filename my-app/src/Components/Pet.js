@@ -18,6 +18,9 @@ export default function Pet({ img }) {
         <p className="pet-description">
           {img.age} {img.gender} {breed}
         </p>
+        <p className="pet-description pet-span">
+          From: {img.contact.address.city}, {img.contact.address.state}
+        </p>
       </div>
     </div>
   );

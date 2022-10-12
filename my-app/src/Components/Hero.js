@@ -18,6 +18,17 @@ export default function Hero() {
     setScrollPosition(position);
   };
 
+  const showResults = () => {
+    window.location.href = "#petDisplay";
+    return null;
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      fetch.searchPets(category, location);
+      showResults();
+    }
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -34,6 +45,7 @@ export default function Hero() {
   function handleCategory(category) {
     setCategory(() => category);
     fetch.searchPets(category, location);
+    showResults();
     console.log(category);
   }
 
@@ -94,16 +106,19 @@ export default function Hero() {
           <input
             type="text"
             className="hero--input"
-            placeholder="Enter City, State, or Zip Code"
+            placeholder="Enter City & State, or Zip Code"
             value={location}
             onChange={handleLocationChange}
+            onKeyDown={handleKeyDown}
           ></input>
-          <button
-            onClick={() => fetch.searchPets(category, location)}
-            className="hero--search-btn"
-          >
-            Search Pets
-          </button>
+          <a href="#petDisplay">
+            <button
+              onClick={() => fetch.searchPets(category, location)}
+              className="hero--search-btn"
+            >
+              Search Pets
+            </button>
+          </a>
         </div>
       </div>
       <div className="hero--mugshot">

@@ -1,9 +1,22 @@
+@import url("http://fonts.cdnfonts.com/css/satoshi");
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: white;
+}
+
+h1 {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+p {
+  font-family: "Satoshi", sans-serif;
 }
 
 code {

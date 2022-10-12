@@ -13,12 +13,14 @@ export default function PetDisplay() {
   console.log(PetElements);
 
   return (
-    <div className="component-container">
-      <div className="pet-display--title">
-        <h1>Pets Available For Adoption Nearby</h1>
-      </div>
+    <div id="petDisplay">
+      <div className="component-container">
+        <div className="pet-display--title">
+          <h1>Pets Available For Adoption Nearby</h1>
+        </div>
 
-      <div className="pet-display--pet-array">{PetElements}</div>
+        <div className="pet-display--pet-array">{PetElements}</div>
+      </div>
     </div>
   );
 }

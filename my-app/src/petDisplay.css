@@ -4,7 +4,7 @@
 }
 
 .pet-display--title h1 {
-  font-size: 2.75rem;
+  font-size: 2.25rem;
   font-weight: 600;
   margin-bottom: 1.5em;
 }
@@ -14,6 +14,16 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 4em;
+  gap: 2em;
   margin-bottom: 8em;
+}
+
+@media screen and (min-width: 982px) {
+  .pet-display--title h1 {
+    font-size: 2.75rem;
+  }
+
+  .pet-display--pet-array {
+    gap: 5em;
+  }
 }
