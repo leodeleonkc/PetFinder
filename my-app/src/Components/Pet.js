@@ -1,7 +1,11 @@
 import "../pet.css";
+import { useContext } from "react";
+import { Context } from "../Fetch";
 import placeHolda from "../images/default-img.svg";
 
 export default function Pet({ img }) {
+  const { fetchPet } = useContext(Context);
+
   let imgSrc = img?.primary_photo_cropped?.small
     ? img.primary_photo_cropped.small
     : placeHolda;

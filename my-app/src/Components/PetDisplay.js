@@ -2,11 +2,10 @@ import { useContext } from "react";
 import { Context } from "../Fetch.js";
 import loading from "../images/loading.gif";
 import Pet from "./Pet";
-import SinglePet from "./SinglePet";
 import "../petDisplay.css";
 
 export default function PetDisplay() {
-  const { allPets, isLoading } = useContext(Context);
+  const { allPets, isLoading, singlePet } = useContext(Context);
 
   const PetElements = Object.entries(allPets).map((entry) => {
     return <Pet key={entry[1].id} img={entry[1]} />;
