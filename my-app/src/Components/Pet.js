@@ -6,10 +6,12 @@ export default function Pet({ img }) {
     ? img.primary_photo_cropped.small
     : placeHolda;
 
+  let hidden = img?.primary_photo_cropped?.small ? "" : "hidden";
+
   let breed = img?.breeds?.primary ? img.breeds.primary : "null";
 
   return (
-    <div className="pet-data pop">
+    <div className={`pet-data pop ${hidden}`}>
       <div className="pet-container-top">
         <img alt="Pet" src={imgSrc} className="pet-image" />
       </div>

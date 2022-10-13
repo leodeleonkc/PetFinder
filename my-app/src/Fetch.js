@@ -4,15 +4,17 @@ const Context = createContext();
 
 function ContextProvider({ children }) {
   const [allPets, setAllPets] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const key = process.env.REACT_APP_PF_KEY;
   const secret = process.env.REACT_APP_SECRET_KEY;
 
   useEffect(() => {
     searchPets();
-  }, []);
+  });
 
   const searchPets = (category, location) => {
+    setIsLoading(true);
     fetch("https://api.petfinder.com/v2/oauth2/token", {
       method: "POST",
       body:
@@ -28,13 +30,13 @@ function ContextProvider({ children }) {
         return resp.json();
       })
       .then(function (data) {
-        console.log("token", data);
+        // console.log("token", data);
 
         const locationQ = !location ? "" : `&location=${location}`;
         const typeQ = !category ? "" : `&type=${category}`;
 
         return fetch(
-          `https://api.petfinder.com/v2/animals?limit=9${typeQ}${locationQ}`,
+          `https://api.petfinder.com/v2/animals?limit=21${typeQ}${locationQ}`,
           {
             headers: {
               Authorization: data.token_type + " " + data.access_token,
@@ -44,16 +46,14 @@ function ContextProvider({ children }) {
         );
       })
       .then((res) => res.json())
-      .then((data) => setAllPets(data.animals))
-
-      .catch(function (err) {
-        alert("Please enter a valid location and try your seach again :)");
-        console.log("Oops... no bueno.", err);
+      .then(function (data) {
+        setAllPets(data.animals);
+        setIsLoading(false);
       });
   };
 
   return (
-    <Context.Provider value={{ allPets, searchPets }}>
+    <Context.Provider value={{ allPets, searchPets, isLoading }}>
       {children}
     </Context.Provider>
   );
