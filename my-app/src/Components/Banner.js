@@ -1,8 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Context } from "../Fetch";
 import "../banner.css";
 
 export default function Banner(props) {
+  const { onePet, viewPet } = useContext(Context);
   const [scrollPosition, setScrollPosition] = useState(0);
+
+  const bannerDefault = `Persian Cat • British Shorthair • Bulldog • Golden Retriever • Abyssinian • Burmese Cat • German Shepherd • French Bulldog • Boxer`;
+
+  const bannerDynamic = viewPet
+    ? `${onePet.breeds.primary} • ${onePet.contact.address.city} • ${onePet.breeds.primary} • ${onePet.contact.address.city} • ${onePet.breeds.primary} • ${onePet.contact.address.city} • ${onePet.breeds.primary} • ${onePet.contact.address.city} • ${onePet.breeds.primary} • ${onePet.contact.address.city} • ${onePet.breeds.primary} • ${onePet.contact.address.city}`
+    : bannerDefault;
 
   const handleScroll = () => {
     const position = window.pageYOffset / 10;
@@ -22,9 +30,7 @@ export default function Banner(props) {
         style={{ transform: `translate(-${scrollPosition}px)` }}
         className="breed-banner-text"
       >
-        Persian Cat &#8226; British Shorthair &#8226; Bulldog &#8226; Golden
-        Retriever &#8226; Abyssinian &#8226; Burmese Cat &#8226; German Shepherd
-        &#8226; French Bulldog &#8226; Boxer
+        {viewPet ? bannerDynamic : bannerDefault}
       </h1>
     </div>
   );

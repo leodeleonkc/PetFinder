@@ -5,10 +5,11 @@ import placeHolda from "../images/default-img.svg";
 
 export default function Pet({ img }) {
   const { fetchPet, setViewPet } = useContext(Context);
+
   function handleClick() {
+    window.location.href = "#banner";
     fetchPet(img.id);
     setViewPet(true);
-    window.location.href = "#banner";
     return null;
   }
 

@@ -1,7 +1,6 @@
 import "../footer.css";
 import quote from "../images/quote.svg";
 import Made from "./Made";
-import placeHolda from "../images/testimonial-placeholder.svg";
 import ginnie from "../images/ginnie.jpg";
 
 export default function TestimonialFooter() {

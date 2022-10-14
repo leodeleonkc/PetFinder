@@ -7,13 +7,13 @@ import OnePet from "./SinglePet";
 import "../petDisplay.css";
 
 export default function PetDisplay() {
-  const { allPets, isLoading, onePet, viewPet } = useContext(Context);
+  const { allPets, isLoading, viewPet } = useContext(Context);
 
   const PetElements = Object.entries(allPets).map((entry) => {
     return <Pet key={entry[1].id} img={entry[1]} />;
   });
 
-  console.log(viewPet);
+  // console.log(viewPet);
 
   return (
     <div id="petDisplay">
