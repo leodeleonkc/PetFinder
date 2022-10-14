@@ -1,7 +1,7 @@
 .hero--container {
   display: flex;
   flex-direction: column;
-  margin: 2em;
+  margin: 1em;
   line-height: 1.5;
 }
 
@@ -28,16 +28,20 @@
 }
 
 .hero--btn {
-  border: 1px solid black;
-  border-radius: 4px;
-  margin: 0.5em;
-  font-size: 1.2rem;
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 2px solid #183643;
+  border-radius: 8px;
+  margin: 0.5em 0;
+  font-size: 1rem;
   transition-duration: 300ms;
   height: 51px;
   /* padding: 0 3em; */
   color: #606060;
   background-color: #fff;
-  width: 300px;
+  width: 100%;
+  box-shadow: 4px 4px #183643;
 }
 
 .hero--btn:is(:hover, :active),
@@ -45,6 +49,7 @@
   cursor: pointer;
   color: white;
   background-color: #f86250;
+  box-shadow: 0 0;
 }
 
 .hero--the-search {
@@ -56,7 +61,6 @@
 
 .hero--input {
   margin: auto;
-
   height: 3.188rem;
   border: 2px solid black;
   border-radius: 4px;
@@ -65,6 +69,10 @@
   color: black;
   margin: 2rem 0 1rem 0;
   width: 300px;
+}
+
+.hero--input:focus {
+  box-shadow: 4px 4px #183643;
 }
 
 ::placeholder {
@@ -84,25 +92,32 @@
 }
 
 .hero--search-btn {
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 1rem 2rem;
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+  font-weight: 800;
+  border: 2px solid #183643;
+  border-radius: 8px;
+  padding: 0.9rem 2rem;
   margin-bottom: 3rem;
-  font-size: 1.125rem;
+  font-size: 1.2rem;
   transition-duration: 100ms;
   cursor: pointer;
-  color: white;
-  background-color: #f86250;
-  filter: drop-shadow(8px 8px 0 #183643);
+  color: #183643;
+  background-color: white;
+  filter: drop-shadow(4px 4px 0 #183643);
 }
 
 .hero--search-btn:hover {
-  background-color: #da5243;
+  filter: drop-shadow(6px 6px #183643);
+  transform: translateY(-2px);
+  color: #f86250;
+  cursor: pointer;
 }
 
 .hero--search-btn:active {
-  transform: translate(8px, 8px);
-  filter: drop-shadow(2px 2px 0 #183643);
+  filter: drop-shadow(2px 2px #183643);
+  transform: translateY(0px);
+  color: #da5243;
 }
 
 .hero--mugshot {
@@ -138,6 +153,7 @@
 
 @media screen and (min-width: 768px) {
   .hero--container {
+    margin: 2em;
     gap: 4em;
   }
 

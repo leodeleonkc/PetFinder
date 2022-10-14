@@ -1,0 +1,244 @@
+.single-pet--wrapper {
+  margin: -1em;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  align-items: center;
+}
+
+.single-pet--close-btn {
+  display: none;
+  margin-top: -1em;
+  margin-bottom: 1em;
+  border-radius: 50%;
+  width: 62px;
+  height: 62px;
+  color: white;
+  font-size: 2rem;
+  background-color: #f86250;
+  border: 1px solid black;
+  filter: drop-shadow(-4px 4px 0px #183643);
+  transition-duration: 200ms;
+}
+
+.single-pet--close {
+  margin-left: 90%;
+  text-align: center;
+  font-weight: 800;
+  padding: 0.3rem 0.8rem;
+  width: 27px;
+  color: #fff;
+  background-color: #da5243;
+  border: 2px solid #183643;
+  border-radius: 8px;
+  filter: drop-shadow(-4px 4px #183643);
+  transition-duration: 200ms;
+}
+
+.single-pet--close:before {
+  content: "\2716";
+}
+
+.x {
+  margin: auto;
+  width: 35px;
+  height: 35px;
+}
+
+.single-pet--close-btn:hover {
+  filter: drop-shadow(-7px 7px 0px #183643);
+  transform: translate(3px, -3px);
+
+  background-color: #da5243;
+  cursor: pointer;
+}
+
+.single-pet--close-btn:active {
+  transform: translate(0px, 0px);
+  filter: drop-shadow(-2px 2px 0px #183643);
+  background-color: #da5243;
+}
+
+.single-pet--pet-photo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.single-pet--photo {
+  margin-top: 2em;
+  width: 85%;
+  border: 2px solid black;
+  border-radius: 6px;
+  box-shadow: -8px 8px #f86250, -8px 8px 0 2px black;
+  transform: translateY(5px);
+}
+
+.single-pet--pet-deets {
+  margin: 0.8em;
+}
+
+.single-pet--name {
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: #183643;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 200px;
+}
+.single-pet--line2 {
+  /* margin-top: -1.2em; */
+  color: #da5243;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.single-pet--description {
+  font-weight: 500;
+  color: #183643;
+}
+
+.single-pet--more,
+.single-pet--about {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 800;
+  color: #183643;
+  text-transform: uppercase;
+  background-color: white;
+  border: 2px solid #183643;
+  border-radius: 8px;
+  letter-spacing: 0;
+  padding: 0.8em;
+  filter: drop-shadow(-4px 4px #183643);
+  transition-duration: 200ms;
+}
+
+.single-pet--more:hover {
+  filter: drop-shadow(-6px 6px #183643);
+  transform: translateY(-2px);
+  color: #f86250;
+  cursor: pointer;
+}
+
+.single-pet--more:active {
+  filter: drop-shadow(-2px 2px #183643);
+  transform: translateY(0px);
+  color: #da5243;
+}
+
+.single-pet--status {
+  display: flex;
+  flex-direction: row;
+}
+.blob {
+  opacity: 0;
+  border-radius: 50%;
+  margin: auto 1em;
+  height: 1rem;
+  max-height: 1rem;
+  width: 1rem;
+  max-width: 1rem;
+  transform: scale(1);
+  background: rgb(2, 251, 64);
+  box-shadow: 0 0 0 0 rgb(0, 248, 54);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(217, 112, 51, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 430px) {
+  .blob {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .single-pet--wrapper {
+    margin: 0.2em;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: -16px 16px #183643;
+    background-color: #31c6db;
+  }
+  .single-pet--pet-deets {
+    margin: 2em;
+  }
+  .single-pet--name,
+  .single-pet--description {
+    color: white;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .single-pet--close-btn {
+    display: flex;
+  }
+
+  .single-pet--close {
+    display: none;
+  }
+  .single-pet--wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .single-pet--pet-photo-container {
+    width: 100%;
+    transition-duration: 200ms;
+  }
+
+  .single-pet--photo {
+    margin-top: 2em;
+    width: 80%;
+  }
+
+  .single-pet--pet-deets {
+    max-width: 455px;
+    width: 100%;
+    margin: 2em;
+  }
+
+  .single-pet--name {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    max-width: 310px;
+  }
+
+  .single-pet--photo {
+    box-shadow: -16px 16px #f86250, -16px 16px 0 2px black;
+    margin-bottom: 3em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .single-pet--name {
+    max-width: 350px;
+  }
+}

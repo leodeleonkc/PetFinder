@@ -29,5 +29,7 @@
 }
 
 .loading {
+  display: flex;
+  margin: auto;
   max-width: 150px;
 }

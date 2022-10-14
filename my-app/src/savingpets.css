@@ -11,25 +11,32 @@
 }
 
 .saving-pets--btn {
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 1rem 2rem;
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+  font-weight: 800;
+  border: 2px solid #183643;
+  border-radius: 8px;
+  padding: 0.9rem 2rem;
   margin-bottom: 3rem;
-  font-size: 1.125rem;
+  font-size: 1.2rem;
   transition-duration: 100ms;
   cursor: pointer;
-  color: white;
-  background-color: #f86250;
-  filter: drop-shadow(8px 8px 0 #183643);
+  color: #183643;
+  background-color: white;
+  filter: drop-shadow(4px 4px 0 #183643);
 }
 
 .saving-pets--btn:hover {
-  background-color: #da5243;
+  filter: drop-shadow(6px 6px #183643);
+  transform: translateY(-2px);
+  color: #f86250;
+  cursor: pointer;
 }
 
 .saving-pets--btn:active {
-  transform: translate(8px, 8px);
-  filter: drop-shadow(2px 2px 0 #183643);
+  filter: drop-shadow(2px 2px #183643);
+  transform: translateY(0px);
+  color: #da5243;
 }
 
 .saving-pets--image-container {

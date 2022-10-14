@@ -4,19 +4,21 @@ const Context = createContext();
 
 function ContextProvider({ children }) {
   const [allPets, setAllPets] = useState({});
-  const [singlePet, setSinglePet] = useState(false);
+  const [onePet, setOnePet] = useState([]);
+  const [viewPet, setViewPet] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const key = process.env.REACT_APP_PF_KEY;
   const secret = process.env.REACT_APP_SECRET_KEY;
 
   useEffect(() => {
-    // searchPets();
-    fetchPet("47247776");
+    searchPets();
+    fetchPet("58109300");
   }, []);
 
   const searchPets = (category, location) => {
     setIsLoading(true);
+    setViewPet(false);
     fetch("https://api.petfinder.com/v2/oauth2/token", {
       method: "POST",
       body:
@@ -38,7 +40,7 @@ function ContextProvider({ children }) {
         const typeQ = !category ? "" : `&type=${category}`;
 
         return fetch(
-          `https://api.petfinder.com/v2/animals?limit=21${typeQ}${locationQ}`,
+          `https://api.petfinder.com/v2/animals?limit=50${typeQ}${locationQ}`,
           {
             headers: {
               Authorization: data.token_type + " " + data.access_token,
@@ -84,15 +86,22 @@ function ContextProvider({ children }) {
       })
       .then((res) => res.json())
       .then(function (data) {
-        setSinglePet(data.animal);
+        setOnePet(data.animal);
         setIsLoading(false);
-        console.log(singlePet);
       });
   };
 
   return (
     <Context.Provider
-      value={{ allPets, searchPets, isLoading, fetchPet, singlePet }}
+      value={{
+        allPets,
+        searchPets,
+        isLoading,
+        fetchPet,
+        onePet,
+        viewPet,
+        setViewPet,
+      }}
     >
       {children}
     </Context.Provider>

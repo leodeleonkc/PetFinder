@@ -1,5 +1,5 @@
 import "../hero.css";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { Context } from "../Fetch";
 import figaro from "../images/figaro.png";
 import star1 from "../images/stars/star1.svg";
@@ -12,6 +12,7 @@ export default function Hero() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [location, setLocation] = useState("");
   const [category, setCategory] = useState("cat");
+  const search = useRef(null);
 
   const handleScroll = () => {
     const position = window.pageYOffset / 7;
@@ -19,7 +20,7 @@ export default function Hero() {
   };
 
   const showResults = () => {
-    window.location.href = "#petDisplay";
+    window.location.href = "#banner";
     return null;
   };
   const handleKeyDown = (event) => {
@@ -38,14 +39,15 @@ export default function Hero() {
   }, []);
 
   function handleLocationChange(e) {
-    setLocation(() => e.target.value);
+    setLocation(e.target.value);
     console.log(location);
   }
 
   function handleCategory(category) {
-    setCategory(() => category);
-    fetch.searchPets(category, location);
-    showResults();
+    setCategory(category);
+    search.current.focus();
+    // fetch.searchPets(category, location);
+    // showResults();
     console.log(category);
   }
 
@@ -57,7 +59,9 @@ export default function Hero() {
         </h1>
         <p className="hero--description">
           Browse pets up for adoption near you from our network of over 11,500
-          shelters and rescues.
+          shelters and rescues. 1️⃣ Select a <strong>pet category</strong> below.
+          2️⃣ Enter your prefered <strong>location</strong>. 3️⃣ Search for
+          available <strong>pets in your area</strong> !
         </p>
         <img
           src={star2}
@@ -104,6 +108,7 @@ export default function Hero() {
             className="hero--star4 star"
           />
           <input
+            ref={search}
             type="text"
             className="hero--input"
             placeholder="Enter City & State, or Zip Code"
@@ -111,7 +116,7 @@ export default function Hero() {
             onChange={handleLocationChange}
             onKeyDown={handleKeyDown}
           ></input>
-          <a href="#petDisplay">
+          <a href="#banner">
             <button
               onClick={() => fetch.searchPets(category, location)}
               className="hero--search-btn"

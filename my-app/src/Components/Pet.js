@@ -4,7 +4,13 @@ import { Context } from "../Fetch";
 import placeHolda from "../images/default-img.svg";
 
 export default function Pet({ img }) {
-  const { fetchPet } = useContext(Context);
+  const { fetchPet, setViewPet } = useContext(Context);
+  function handleClick() {
+    fetchPet(img.id);
+    setViewPet(true);
+    window.location.href = "#banner";
+    return null;
+  }
 
   let imgSrc = img?.primary_photo_cropped?.small
     ? img.primary_photo_cropped.small
@@ -15,12 +21,12 @@ export default function Pet({ img }) {
   let breed = img?.breeds?.primary ? img.breeds.primary : "null";
 
   return (
-    <div className={`pet-data pop ${hidden}`}>
+    <div onClick={handleClick} className={`pet-data pop ${hidden}`}>
       <div className="pet-container-top">
         <img alt="Pet" src={imgSrc} className="pet-image" />
       </div>
       <div className="pet-container-bottom">
-        <p className="pet-name">{img.name}</p>
+        <p className="pet-name">{img.name.replace(/&amp;/g, "&")}</p>
         <p className="pet-description">
           {img.age} {img.gender} {breed}
         </p>
