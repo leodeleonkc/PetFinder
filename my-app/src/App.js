@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <Hero />
-      <Banner value="banner" />
+      <Banner value="petView" />
       <ErrorBoundary
         FallbackComponent={ErrorFallback}
         onReset={() => {

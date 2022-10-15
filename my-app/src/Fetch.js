@@ -34,8 +34,6 @@ function ContextProvider({ children }) {
         return resp.json();
       })
       .then(function (data) {
-        console.log("token", data);
-
         const locationQ = !location ? "" : `&location=${location}`;
         const typeQ = !category ? "" : `&type=${category}`;
 
@@ -75,7 +73,7 @@ function ContextProvider({ children }) {
         return resp.json();
       })
       .then(function (data) {
-        console.log("token", data);
+        // console.log("token", data);
 
         return fetch(`https://api.petfinder.com/v2/animals/${petID}`, {
           headers: {

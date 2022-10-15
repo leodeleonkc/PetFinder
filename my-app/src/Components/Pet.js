@@ -7,10 +7,11 @@ export default function Pet({ img }) {
   const { fetchPet, setViewPet } = useContext(Context);
 
   function handleClick() {
-    window.location.href = "#banner";
     fetchPet(img.id);
     setViewPet(true);
-    return null;
+    setTimeout(() => {
+      window.location.href = "#petView";
+    }, "400");
   }
 
   let imgSrc = img?.primary_photo_cropped?.small

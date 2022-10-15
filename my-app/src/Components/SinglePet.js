@@ -23,16 +23,17 @@ export default function SinglePet() {
     onePet.name.slice(1).toLowerCase().replace(/&amp;/g, "&");
   const gender = onePet.gender;
   const age = onePet.age;
-  const breed = onePet.breeds.primary;
-  const color = onePet.colors.primary;
+  const breed = `• ${onePet.breeds.primary}`;
+  const color = `• ${onePet.colors.primary}`;
   const description = onePet.description
     ? `${onePet.description
         .replace(/&amp;/g, "&")
         .replace(/&#39;/g, "'")
+        .replace(/&#039;/g, "'")
         .replace(/&#34;/g, '"')}  [click below to continue]`
     : "Description not available.";
   const city = onePet?.contact?.address?.city
-    ? onePet.contact.address.city
+    ? `• ${onePet.contact.address.city}`
     : "N/A";
   const state = onePet?.contact?.address?.state
     ? onePet.contact.address.state
@@ -79,8 +80,8 @@ export default function SinglePet() {
               <h1 className="single-pet--name">{name}</h1>{" "}
             </div>
             <p className="single-pet--line2">
-              {age} {gender === "Unknown" ? "" : gender} • {color} • {breed} •{" "}
-              {city}, {state}
+              {age} {gender === "Unknown" ? "" : gender} {color} {breed} {city},{" "}
+              {state}
             </p>
 
             <div className="single-pet--about-group">

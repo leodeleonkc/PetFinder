@@ -19,6 +19,13 @@ export default function Hero() {
     setScrollPosition(position);
   };
 
+  const handleSearch = () => {
+    fetch.searchPets(category, location);
+    setTimeout(() => {
+      window.location.href = "#petView";
+    }, "100");
+  };
+
   const showResults = () => {
     window.location.href = "#banner";
     return null;
@@ -40,7 +47,7 @@ export default function Hero() {
 
   function handleLocationChange(e) {
     setLocation(e.target.value);
-    console.log(location);
+    // console.log(location);
   }
 
   function handleCategory(category) {
@@ -48,7 +55,7 @@ export default function Hero() {
     search.current.focus();
     // fetch.searchPets(category, location);
     // showResults();
-    console.log(category);
+    // console.log(category);
   }
 
   return (
@@ -117,10 +124,7 @@ export default function Hero() {
             onKeyDown={handleKeyDown}
           ></input>
           <a href="#banner">
-            <button
-              onClick={() => fetch.searchPets(category, location)}
-              className="hero--search-btn"
-            >
+            <button onClick={handleSearch} className="hero--search-btn">
               Search Pets
             </button>
           </a>
