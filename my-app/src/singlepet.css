@@ -114,6 +114,11 @@
   animation: pulse-green 2s infinite;
 }
 
+.email {
+  cursor: pointer;
+  text-transform: lowercase;
+}
+
 @keyframes pulse-green {
   0% {
     transform: scale(0.95);

@@ -30,7 +30,7 @@ export default function SinglePet() {
         .replace(/&amp;/g, "&")
         .replace(/&#39;/g, "'")
         .replace(/&#039;/g, "'")
-        .replace(/&#34;/g, '"')}  [click below to continue]`
+        .replace(/&#34;/g, '"')}  [click "learn more" continue]`
     : "Description not available.";
   const city = onePet?.contact?.address?.city
     ? `• ${onePet.contact.address.city}`
@@ -47,6 +47,7 @@ export default function SinglePet() {
   const ggChildren = onePet.environment.children;
   const ggDogs = onePet.environment.dogs;
   const ggCats = onePet.environment.cats;
+  const email = onePet.contact.email;
   // const adoptable = onePet.status;
 
   const linkMeet = () => {
@@ -121,6 +122,17 @@ export default function SinglePet() {
             </div>
 
             <p className="single-pet--description">{description}</p>
+            <div className="single-pet--status">
+              <p className="single-pet--line2">
+                Interested? Contact{" "}
+                <i>
+                  <span onClick={linkMeet} className="email">
+                    {email}
+                  </span>
+                </i>{" "}
+                for more info.
+              </p>{" "}
+            </div>
             <p className="single-pet--more" onClick={linkMeet}>
               learn more...
             </p>
