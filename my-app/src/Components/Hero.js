@@ -26,14 +26,9 @@ export default function Hero() {
     }, "100");
   };
 
-  const showResults = () => {
-    window.location.href = "#banner";
-    return null;
-  };
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      fetch.searchPets(category, location);
-      showResults();
+      handleSearch();
     }
   };
 
@@ -123,11 +118,9 @@ export default function Hero() {
             onChange={handleLocationChange}
             onKeyDown={handleKeyDown}
           ></input>
-          <a href="#banner">
-            <button onClick={handleSearch} className="hero--search-btn">
-              Search Pets
-            </button>
-          </a>
+          <button onClick={handleSearch} className="hero--search-btn">
+            Search Pets
+          </button>
         </div>
       </div>
       <div className="hero--mugshot">
