@@ -1,7 +1,7 @@
 import "../pet.css";
 import { useContext } from "react";
 import { Context } from "../Fetch";
-import placeHolda from "../images/default-img.svg";
+import defaultImg from "../images/default-img.svg";
 
 export default function Pet({ img }) {
   const { fetchPet, setViewPet } = useContext(Context);
@@ -16,7 +16,7 @@ export default function Pet({ img }) {
 
   let imgSrc = img?.primary_photo_cropped?.small
     ? img.primary_photo_cropped.small
-    : placeHolda;
+    : defaultImg;
 
   let hidden = img?.primary_photo_cropped?.small ? "" : "hidden";
 
